@@ -21,7 +21,7 @@
     "viewsContainers": {
       "activitybar": [{
         "id": "dbvectorContainer",
-        "title": "DBVectorCode",
+        "title": "VectorDB Studio",
         "icon": "$(database)"
       }]
     },
@@ -32,25 +32,25 @@
       }]
     },
     "commands": [
-      { "command": "dbvector.addConnection", "title": "Add Connection", "icon": "$(add)", "category": "DBVector" },
-      { "command": "dbvector.editConnection", "title": "Edit Connection", "icon": "$(edit)", "category": "DBVector" },
-      { "command": "dbvector.deleteConnection", "title": "Delete Connection", "icon": "$(trash)", "category": "DBVector" },
-      { "command": "dbvector.connect", "title": "Connect", "icon": "$(plug)", "category": "DBVector" },
-      { "command": "dbvector.disconnect", "title": "Disconnect", "icon": "$(debug-disconnect)", "category": "DBVector" },
-      { "command": "dbvector.refresh", "title": "Refresh", "icon": "$(refresh)", "category": "DBVector" },
-      { "command": "dbvector.createDatabase", "title": "Create Database", "icon": "$(add)", "category": "DBVector" },
-      { "command": "dbvector.dropDatabase", "title": "Drop Database", "icon": "$(trash)", "category": "DBVector" },
-      { "command": "dbvector.createCollection", "title": "Create Collection", "icon": "$(add)", "category": "DBVector" },
-      { "command": "dbvector.dropCollection", "title": "Drop Collection", "icon": "$(trash)", "category": "DBVector" },
-      { "command": "dbvector.loadCollection", "title": "Load Collection", "icon": "$(cloud-upload)", "category": "DBVector" },
-      { "command": "dbvector.releaseCollection", "title": "Release Collection", "icon": "$(cloud-download)", "category": "DBVector" },
-      { "command": "dbvector.viewData", "title": "View Data", "icon": "$(table)", "category": "DBVector" },
-      { "command": "dbvector.insertData", "title": "Insert Data", "icon": "$(add)", "category": "DBVector" },
-      { "command": "dbvector.deleteData", "title": "Delete Data", "icon": "$(trash)", "category": "DBVector" },
-      { "command": "dbvector.describeCollection", "title": "Describe Collection", "icon": "$(info)", "category": "DBVector" },
-      { "command": "dbvector.createPartition", "title": "Create Partition", "icon": "$(add)", "category": "DBVector" },
-      { "command": "dbvector.dropPartition", "title": "Drop Partition", "icon": "$(trash)", "category": "DBVector" },
-      { "command": "dbvector.viewPartitionData", "title": "View Partition Data", "icon": "$(table)", "category": "DBVector" }
+      { "command": "dbvector.addConnection", "title": "Add Connection", "icon": "$(add)", "category": "VectorDB Studio" },
+      { "command": "dbvector.editConnection", "title": "Edit Connection", "icon": "$(edit)", "category": "VectorDB Studio" },
+      { "command": "dbvector.deleteConnection", "title": "Delete Connection", "icon": "$(trash)", "category": "VectorDB Studio" },
+      { "command": "dbvector.connect", "title": "Connect", "icon": "$(plug)", "category": "VectorDB Studio" },
+      { "command": "dbvector.disconnect", "title": "Disconnect", "icon": "$(debug-disconnect)", "category": "VectorDB Studio" },
+      { "command": "dbvector.refresh", "title": "Refresh", "icon": "$(refresh)", "category": "VectorDB Studio" },
+      { "command": "dbvector.createDatabase", "title": "Create Database", "icon": "$(add)", "category": "VectorDB Studio" },
+      { "command": "dbvector.dropDatabase", "title": "Drop Database", "icon": "$(trash)", "category": "VectorDB Studio" },
+      { "command": "dbvector.createCollection", "title": "Create Collection", "icon": "$(add)", "category": "VectorDB Studio" },
+      { "command": "dbvector.dropCollection", "title": "Drop Collection", "icon": "$(trash)", "category": "VectorDB Studio" },
+      { "command": "dbvector.loadCollection", "title": "Load Collection", "icon": "$(cloud-upload)", "category": "VectorDB Studio" },
+      { "command": "dbvector.releaseCollection", "title": "Release Collection", "icon": "$(cloud-download)", "category": "VectorDB Studio" },
+      { "command": "dbvector.viewData", "title": "View Data", "icon": "$(table)", "category": "VectorDB Studio" },
+      { "command": "dbvector.insertData", "title": "Insert Data", "icon": "$(add)", "category": "VectorDB Studio" },
+      { "command": "dbvector.deleteData", "title": "Delete Data", "icon": "$(trash)", "category": "VectorDB Studio" },
+      { "command": "dbvector.describeCollection", "title": "Describe Collection", "icon": "$(info)", "category": "VectorDB Studio" },
+      { "command": "dbvector.createPartition", "title": "Create Partition", "icon": "$(add)", "category": "VectorDB Studio" },
+      { "command": "dbvector.dropPartition", "title": "Drop Partition", "icon": "$(trash)", "category": "VectorDB Studio" },
+      { "command": "dbvector.viewPartitionData", "title": "View Partition Data", "icon": "$(table)", "category": "VectorDB Studio" }
     ],
     "menus": {
       "view/title": [
@@ -78,14 +78,14 @@
       ]
     },
     "configuration": {
-      "title": "DBVectorCode",
+      "title": "VectorDB Studio",
       "properties": {
-        "dbvectorcode.pageSize": {
+        "vectordb-studio.pageSize": {
           "type": "number",
           "default": 50,
           "description": "Default page size for data viewing"
         },
-        "dbvectorcode.connectionTimeout": {
+        "vectordb-studio.connectionTimeout": {
           "type": "number",
           "default": 10000,
           "description": "Connection timeout in milliseconds"

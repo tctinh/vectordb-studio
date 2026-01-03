@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import { ConnectionConfig } from '../types';
 
-const STORAGE_KEY = 'dbvectorcode.connections';
-const SECRET_PREFIX = 'dbvectorcode.pwd.';
+const STORAGE_KEY = 'vectordb-studio.connections';
+const SECRET_PREFIX = 'vectordb-studio.pwd.';
 
 export class ConnectionStorage {
     constructor(private context: vscode.ExtensionContext) {}

@@ -143,7 +143,7 @@ export function registerCollectionCommands(
                 await client.useDatabase(item.database.name);
                 const desc = await client.describeCollection(item.info.name);
                 
-                const output = vscode.window.createOutputChannel('DBVectorCode');
+                const output = vscode.window.createOutputChannel('VectorDB Studio');
                 output.clear();
                 output.appendLine(`=== Collection: ${item.info.name} ===\n`);
                 output.appendLine(JSON.stringify(desc, null, 2));

@@ -6,7 +6,7 @@ import { registerAllCommands } from './commands';
 let connectionManager: ConnectionManager;
 
 export async function activate(context: vscode.ExtensionContext) {
-    console.log('DBVectorCode is now active!');
+    console.log('VectorDB Studio is now active!');
 
     connectionManager = new ConnectionManager(context);
     const treeProvider = new MilvusTreeProvider(connectionManager);
@@ -24,7 +24,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
     statusBar.text = '$(database) Milvus';
-    statusBar.tooltip = 'DBVectorCode - Milvus Manager';
+    statusBar.tooltip = 'VectorDB Studio';
     statusBar.command = 'dbvector.addConnection';
     statusBar.show();
     context.subscriptions.push(statusBar);
