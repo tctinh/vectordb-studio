@@ -2,7 +2,7 @@
   "name": "vectordb-studio",
   "displayName": "VectorDB Studio",
   "description": "Manage Milvus vector databases directly in VS Code. Create, browse, and query collections with an intuitive interface.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "tctinh",
   "license": "SEE LICENSE IN LICENSE",
   "icon": "media/icon.png",
