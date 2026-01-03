@@ -2,7 +2,7 @@
   "name": "vectordb-studio",
   "displayName": "VectorDB Studio",
   "description": "Manage Milvus vector databases directly in VS Code. Create, browse, and query collections with an intuitive interface.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "publisher": "tctinh",
   "license": "SEE LICENSE IN LICENSE",
   "icon": "media/icon.png",
@@ -13,68 +13,258 @@
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Data Science", "Machine Learning", "Other"],
-  "keywords": ["milvus", "vector", "database", "embeddings", "ai", "ml", "similarity-search", "rag"],
+  "categories": [
+    "Data Science",
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "milvus",
+    "vector",
+    "database",
+    "embeddings",
+    "ai",
+    "ml",
+    "similarity-search",
+    "rag"
+  ],
   "main": "./dist/extension.js",
-  "activationEvents": ["onView:dbvectorExplorer"],
+  "activationEvents": [
+    "onView:dbvectorExplorer"
+  ],
   "contributes": {
     "viewsContainers": {
-      "activitybar": [{
-        "id": "dbvectorContainer",
-        "title": "VectorDB Studio",
-        "icon": "$(database)"
-      }]
+      "activitybar": [
+        {
+          "id": "dbvectorContainer",
+          "title": "VectorDB Studio",
+          "icon": "$(database)"
+        }
+      ]
     },
     "views": {
-      "dbvectorContainer": [{
-        "id": "dbvectorExplorer",
-        "name": "Milvus Explorer"
-      }]
+      "dbvectorContainer": [
+        {
+          "id": "dbvectorExplorer",
+          "name": "Milvus Explorer"
+        }
+      ]
     },
     "commands": [
-      { "command": "dbvector.addConnection", "title": "Add Connection", "icon": "$(add)", "category": "VectorDB Studio" },
-      { "command": "dbvector.editConnection", "title": "Edit Connection", "icon": "$(edit)", "category": "VectorDB Studio" },
-      { "command": "dbvector.deleteConnection", "title": "Delete Connection", "icon": "$(trash)", "category": "VectorDB Studio" },
-      { "command": "dbvector.connect", "title": "Connect", "icon": "$(plug)", "category": "VectorDB Studio" },
-      { "command": "dbvector.disconnect", "title": "Disconnect", "icon": "$(debug-disconnect)", "category": "VectorDB Studio" },
-      { "command": "dbvector.refresh", "title": "Refresh", "icon": "$(refresh)", "category": "VectorDB Studio" },
-      { "command": "dbvector.createDatabase", "title": "Create Database", "icon": "$(add)", "category": "VectorDB Studio" },
-      { "command": "dbvector.dropDatabase", "title": "Drop Database", "icon": "$(trash)", "category": "VectorDB Studio" },
-      { "command": "dbvector.createCollection", "title": "Create Collection", "icon": "$(add)", "category": "VectorDB Studio" },
-      { "command": "dbvector.dropCollection", "title": "Drop Collection", "icon": "$(trash)", "category": "VectorDB Studio" },
-      { "command": "dbvector.loadCollection", "title": "Load Collection", "icon": "$(cloud-upload)", "category": "VectorDB Studio" },
-      { "command": "dbvector.releaseCollection", "title": "Release Collection", "icon": "$(cloud-download)", "category": "VectorDB Studio" },
-      { "command": "dbvector.viewData", "title": "View Data", "icon": "$(table)", "category": "VectorDB Studio" },
-      { "command": "dbvector.insertData", "title": "Insert Data", "icon": "$(add)", "category": "VectorDB Studio" },
-      { "command": "dbvector.deleteData", "title": "Delete Data", "icon": "$(trash)", "category": "VectorDB Studio" },
-      { "command": "dbvector.describeCollection", "title": "Describe Collection", "icon": "$(info)", "category": "VectorDB Studio" },
-      { "command": "dbvector.createPartition", "title": "Create Partition", "icon": "$(add)", "category": "VectorDB Studio" },
-      { "command": "dbvector.dropPartition", "title": "Drop Partition", "icon": "$(trash)", "category": "VectorDB Studio" },
-      { "command": "dbvector.viewPartitionData", "title": "View Partition Data", "icon": "$(table)", "category": "VectorDB Studio" }
+      {
+        "command": "dbvector.addConnection",
+        "title": "Add Connection",
+        "icon": "$(add)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.editConnection",
+        "title": "Edit Connection",
+        "icon": "$(edit)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.deleteConnection",
+        "title": "Delete Connection",
+        "icon": "$(trash)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.connect",
+        "title": "Connect",
+        "icon": "$(plug)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.disconnect",
+        "title": "Disconnect",
+        "icon": "$(debug-disconnect)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.createDatabase",
+        "title": "Create Database",
+        "icon": "$(add)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.dropDatabase",
+        "title": "Drop Database",
+        "icon": "$(trash)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.createCollection",
+        "title": "Create Collection",
+        "icon": "$(add)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.dropCollection",
+        "title": "Drop Collection",
+        "icon": "$(trash)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.loadCollection",
+        "title": "Load Collection",
+        "icon": "$(cloud-upload)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.releaseCollection",
+        "title": "Release Collection",
+        "icon": "$(cloud-download)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.viewData",
+        "title": "View Data",
+        "icon": "$(table)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.insertData",
+        "title": "Insert Data",
+        "icon": "$(add)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.deleteData",
+        "title": "Delete Data",
+        "icon": "$(trash)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.describeCollection",
+        "title": "Describe Collection",
+        "icon": "$(info)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.createPartition",
+        "title": "Create Partition",
+        "icon": "$(add)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.dropPartition",
+        "title": "Drop Partition",
+        "icon": "$(trash)",
+        "category": "VectorDB Studio"
+      },
+      {
+        "command": "dbvector.viewPartitionData",
+        "title": "View Partition Data",
+        "icon": "$(table)",
+        "category": "VectorDB Studio"
+      }
     ],
     "menus": {
       "view/title": [
-        { "command": "dbvector.addConnection", "when": "view == dbvectorExplorer", "group": "navigation@1" },
-        { "command": "dbvector.refresh", "when": "view == dbvectorExplorer", "group": "navigation@2" }
+        {
+          "command": "dbvector.addConnection",
+          "when": "view == dbvectorExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "dbvector.refresh",
+          "when": "view == dbvectorExplorer",
+          "group": "navigation@2"
+        }
       ],
       "view/item/context": [
-        { "command": "dbvector.connect", "when": "view == dbvectorExplorer && viewItem == serverDisconnected", "group": "1_connection@1" },
-        { "command": "dbvector.disconnect", "when": "view == dbvectorExplorer && viewItem == serverConnected", "group": "1_connection@1" },
-        { "command": "dbvector.editConnection", "when": "view == dbvectorExplorer && viewItem =~ /^server/", "group": "2_manage@1" },
-        { "command": "dbvector.deleteConnection", "when": "view == dbvectorExplorer && viewItem =~ /^server/", "group": "2_manage@2" },
-        { "command": "dbvector.createDatabase", "when": "view == dbvectorExplorer && viewItem == serverConnected", "group": "3_crud@1" },
-        { "command": "dbvector.dropDatabase", "when": "view == dbvectorExplorer && viewItem == database", "group": "3_crud@2" },
-        { "command": "dbvector.createCollection", "when": "view == dbvectorExplorer && viewItem == database", "group": "3_crud@1" },
-        { "command": "dbvector.describeCollection", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "1_info@1" },
-        { "command": "dbvector.viewData", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "2_data@1" },
-        { "command": "dbvector.insertData", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "2_data@2" },
-        { "command": "dbvector.deleteData", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "2_data@3" },
-        { "command": "dbvector.loadCollection", "when": "view == dbvectorExplorer && viewItem == collectionUnloaded", "group": "3_state@1" },
-        { "command": "dbvector.releaseCollection", "when": "view == dbvectorExplorer && viewItem == collectionLoaded", "group": "3_state@1" },
-        { "command": "dbvector.createPartition", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "3_partition@1" },
-        { "command": "dbvector.dropCollection", "when": "view == dbvectorExplorer && viewItem =~ /^collection/", "group": "4_danger@1" },
-        { "command": "dbvector.viewPartitionData", "when": "view == dbvectorExplorer && viewItem == partition", "group": "1_data@1" },
-        { "command": "dbvector.dropPartition", "when": "view == dbvectorExplorer && viewItem == partition", "group": "4_danger@1" }
+        {
+          "command": "dbvector.connect",
+          "when": "view == dbvectorExplorer && viewItem == serverDisconnected",
+          "group": "1_connection@1"
+        },
+        {
+          "command": "dbvector.disconnect",
+          "when": "view == dbvectorExplorer && viewItem == serverConnected",
+          "group": "1_connection@1"
+        },
+        {
+          "command": "dbvector.editConnection",
+          "when": "view == dbvectorExplorer && viewItem =~ /^server/",
+          "group": "2_manage@1"
+        },
+        {
+          "command": "dbvector.deleteConnection",
+          "when": "view == dbvectorExplorer && viewItem =~ /^server/",
+          "group": "2_manage@2"
+        },
+        {
+          "command": "dbvector.createDatabase",
+          "when": "view == dbvectorExplorer && viewItem == serverConnected",
+          "group": "3_crud@1"
+        },
+        {
+          "command": "dbvector.dropDatabase",
+          "when": "view == dbvectorExplorer && viewItem == database",
+          "group": "3_crud@2"
+        },
+        {
+          "command": "dbvector.createCollection",
+          "when": "view == dbvectorExplorer && viewItem == database",
+          "group": "3_crud@1"
+        },
+        {
+          "command": "dbvector.describeCollection",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "1_info@1"
+        },
+        {
+          "command": "dbvector.viewData",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "2_data@1"
+        },
+        {
+          "command": "dbvector.insertData",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "2_data@2"
+        },
+        {
+          "command": "dbvector.deleteData",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "2_data@3"
+        },
+        {
+          "command": "dbvector.loadCollection",
+          "when": "view == dbvectorExplorer && viewItem == collectionUnloaded",
+          "group": "3_state@1"
+        },
+        {
+          "command": "dbvector.releaseCollection",
+          "when": "view == dbvectorExplorer && viewItem == collectionLoaded",
+          "group": "3_state@1"
+        },
+        {
+          "command": "dbvector.createPartition",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "3_partition@1"
+        },
+        {
+          "command": "dbvector.dropCollection",
+          "when": "view == dbvectorExplorer && viewItem =~ /^collection/",
+          "group": "4_danger@1"
+        },
+        {
+          "command": "dbvector.viewPartitionData",
+          "when": "view == dbvectorExplorer && viewItem == partition",
+          "group": "1_data@1"
+        },
+        {
+          "command": "dbvector.dropPartition",
+          "when": "view == dbvectorExplorer && viewItem == partition",
+          "group": "4_danger@1"
+        }
       ]
     },
     "configuration": {
